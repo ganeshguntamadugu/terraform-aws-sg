@@ -8,8 +8,8 @@ variable "environment" {
     
 }
 
-variable "sg_name" {
-    
+variable "sgs" {
+  
 }
 
 variable "vpc_id" {
