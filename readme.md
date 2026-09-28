@@ -13,5 +13,4 @@
 * common_tags (Optional): Default is empty. User can supply tags in map(string) format.
 * sg_tags (Optional): Default is empty. User can supply tags in map(string) format.
 
-## Outputs
-* sg_id: Security Group ID created
+
