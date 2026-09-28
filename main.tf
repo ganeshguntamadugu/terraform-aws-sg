@@ -1,4 +1,5 @@
-resource "aws_security_group" "mysql" {
+#SG
+resource "aws_security_group" "main" {
   for_each = var.sgs
   name        = "${local.sg_fullname}-${each.key}"
   description = "Allow traffic for ${each.key}"

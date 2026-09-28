@@ -9,7 +9,7 @@ variable "environment" {
 }
 
 variable "sgs" {
-  
+    type = map(map(list))   
 }
 
 variable "vpc_id" {
