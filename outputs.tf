@@ -1,3 +1,3 @@
 output "sg_id" {
-    value = aws_security_group.main
+    value = aws_security_group.main[each.key]
 }
