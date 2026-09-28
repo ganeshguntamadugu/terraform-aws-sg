@@ -1,53 +1,17 @@
-# This module is going to create Security groups.
-## Created below resources
-* VPC
-* Internet Gateway associated with VPC
-* 2 Public Subnets
-* 2 Private Subnets
-* 2 Database Subnets
-* Database subnet group
-* EIP
-* NAT Gateway
-* Public Route table
-* Private Route table
-* Database Route table
-* Routes
-* Route table associations with subnets
-* Peering with default VPC(if Required)
-* Peering routes in acceptor and requestor route tables
-* SSM Parameter (if Required)
+# This module is going to create Security Group.
+## Created Security Group
+* Security Group
 
 ## Inputs
 ### Mandatory Inputs
 * project_name (Mandatory): User must supply their project name.
 * environment (Mandatory): User must supply their environment name.
-* vpc_cidr (Mandatory): User must supply their VPC CIDR.
-* public_subnet_cidrs (Mandatory): User must supply only 2 valid public subnet CIDR.
-* private_subnet_cidrs (Mandatory): User must supply only 2 valid private subnet CIDR.
-* database_subnet_cidrs (Mandatory): User must supply only 2 valid database subnet CIDR.
+* sgs (Mandatory): User must supply their Security Group names.
+* vpc_id (Mandatory): User must supply their VPC ID.
 
 ### Optional Inputs
-* enable_dns_hostnames (Optional): defaults to true.
 * common_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* vpc_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* igw_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* public_subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* private_subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* database_subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* db_subnet_group_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* eip_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* nat_gateway_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* public_route_table_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* private_route_table_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* database_route_table_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* is_peering_required (Optional): defaults to false
-* vpc_peering_tags (Optional): Default is empty. User can supply tags in map(string) format.
-* parameter_store_required (Optional): defaults to false
-* parameter_tags (Optional): Default is empty. User can supply tags in map(string) format.
+* sg_tags (Optional): Default is empty. User can supply tags in map(string) format.
 
 ## Outputs
-* vpc_id: VPC ID created
-* igw_id: Internet gateway ID
-* public_subnet_ids: list of 2 public subnet ids created
-* private_subnet_ids: list of 2 private subnet ids created
-* database_subnet_ids: list of 2 database subnet ids created
+* sg_id: Security Group ID created
