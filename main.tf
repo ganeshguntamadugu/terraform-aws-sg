@@ -1,20 +1,8 @@
 #SG
 resource "aws_security_group" "main" {
-  for_each = var.sgs
-  name        = "${local.sg_fullname}-${each.key}"
-  description = "Allow traffic for ${each.key}"
+  name        = local.sg_fullname
+  description = "Allow traffic for ${var.sg_name}"
   vpc_id      = var.vpc_id
-
-  dynamic "ingress" {
-      for_each = each.value.ingress
-      content {
-        description = ingress.value.description
-        from_port = ingress.value.port
-        to_port = ingress.value.port
-        protocol = ingress.value.protocol
-        cidr_blocks = ingress.value.cidr_blocks
-      }
-  }
 
   egress {
     from_port        = 0
@@ -27,8 +15,7 @@ resource "aws_security_group" "main" {
     var.common_tags,
     var.sg_tags,
     {
-        Name = "${local.sg_fullname}-${each.key}"
+        Name = local.sg_fullname
     }
-  )
-    
+  ) 
 }
